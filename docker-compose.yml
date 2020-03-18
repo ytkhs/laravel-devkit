@@ -53,7 +53,7 @@ services:
     container_name: php
     volumes:
       - ./src:/var/www/html
-      - ./docker/php/php.laravel.ini:/usr/local/etc/php/conf.d/lwaravel.php.ini
+      - ./docker/php/php.laravel.ini:/usr/local/etc/php/conf.d/laravel.php.ini
       - ./logs:/var/log/php
     ports:
       - 9000:9000
