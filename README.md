@@ -2,7 +2,7 @@
 
 docker-compose up -d
 
-docker-compose exec php php /var/www/html/composer update
+docker-compose exec php php /var/www/html/composer.phar update
 
 docker-compose exec php php /var/www/html/artisan migrate
 
