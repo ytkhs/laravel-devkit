@@ -11,7 +11,6 @@ services:
 
   nginx:
     image: nginx:stable-alpine
-    container_name: nginx
     ports:
       - 8080:80
     volumes:
@@ -25,10 +24,9 @@ services:
       - TZ=Asia/Tokyo
     networks:
       - laravel
-  
+
   mysql:
     image: mysql:8.0
-    container_name: mysql
     restart: unless-stopped
     tty: true
     ports:
@@ -46,11 +44,10 @@ services:
       - db-volume:/var/lib/mysql
       - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
       - ./logs:/var/log/mysql
-      
+
   php:
     build:
       context: ./docker/php
-    container_name: php
     volumes:
       - ./src:/var/www/html
       - ./docker/php/php.laravel.ini:/usr/local/etc/php/conf.d/laravel.php.ini
@@ -59,10 +56,9 @@ services:
       - 9000:9000
     networks:
       - laravel
-  
+
   node:
     image: node:13
-    container_name: node
     tty: true
     volumes:
       - ./src:/work
@@ -72,7 +68,6 @@ services:
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    container_name: phpmyadmin
     environment:
       - PMA_ARBITRARY=1
       - PMA_HOST=mysql
@@ -84,20 +79,18 @@ services:
       - 8081:80
     networks:
       - laravel
-      
+
   redis:
     image: redis:alpine
-    container_name: redis
-    ports: 
+    ports:
       - 6379:6379
     volumes:
       - redis-volume:/data
     networks:
       - laravel
-  
+
   mail:
     image: mailhog/mailhog
-    container_name: mailhog
     ports:
       - 8025:8025
     networks:
