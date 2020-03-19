@@ -53,7 +53,6 @@ services:
       - ${SRCDIR}:/var/www/html
       - ./docker/php/php.laravel.ini:/usr/local/etc/php/conf.d/laravel.php.ini
       - ${LOGDIR}:/var/log/php
-
     ports:
       - 9000:9000
     networks:
