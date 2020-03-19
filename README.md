@@ -14,7 +14,7 @@ docker-compose exec c_php composer install
 docker-compose exec c_php php /var/www/html/artisan migrate
 
 # shell
-docker-compose exec php ash
+docker-compose exec c_php ash
 
 # PHPMyAdmin http://localhost:8081
 # MailHog  http://localhost:8025
@@ -29,6 +29,4 @@ mysql -h 127.0.0.1 -uhomestead -p homestead -h 127.0.0.1 # From Host
 
 # redis
 docker-compose exec c_redis redis-cli
-
-
 ```
