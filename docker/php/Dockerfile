@@ -2,6 +2,8 @@ FROM php:7.4-fpm-alpine
 
 SHELL ["/bin/ash", "-oeux", "pipefail", "-c"]
 
+ARG TZ
+
 # composer
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV COMPOSER_HOME /composer
@@ -19,7 +21,7 @@ RUN apk update && \
     libzip-dev=~1.5 \
     oniguruma-dev=~6.9 && \
   cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \
-  echo Asia/Tokyo > /etc/timezone && \
+  echo ${TZ} > /etc/timezone && \
   git clone https://github.com/phpredis/phpredis.git /usr/src/php/ext/redis && \
   apk del .build-dependencies && \
   docker-php-ext-install intl pdo_mysql mbstring zip bcmath redis && \
