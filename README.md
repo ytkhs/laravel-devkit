@@ -11,7 +11,11 @@ docker-compose up -d
 docker-compose exec c_php composer install
 
 # artisan
-docker-compose exec c_php php /var/www/html/artisan migrate
+docker-compose exec c_php php artisan migrate
+
+# testing
+docker-compose exec c_php php artisan make:test UserTest
+docker-compose exec c_php vendor/bin/phpunit --debug ーv
 
 # shell
 docker-compose exec c_php ash
