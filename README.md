@@ -15,7 +15,7 @@ docker-compose exec c_php php artisan migrate
 
 # testing
 docker-compose exec c_php php artisan make:test UserTest
-docker-compose exec c_php vendor/bin/phpunit --debug ーv
+docker-compose exec c_php vendor/bin/phpunit --debug -v
 
 # shell
 docker-compose exec c_php ash
@@ -29,7 +29,7 @@ docker-compose exec c_node npm run dev
 
 # MySQL
 docker-compose exec c_mysql bash -c 'mysql -u${MYSQL_USER} -p${MYSQL_PASSWORD} ${MYSQL_DATABASE}'
-mysql -h 127.0.0.1 -uhomestead -p homestead -h 127.0.0.1 # From Host
+mysql -h 127.0.0.1 -uhomestead -p homestead # From Host
 
 # redis
 docker-compose exec c_redis redis-cli
