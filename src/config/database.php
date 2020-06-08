@@ -33,15 +33,7 @@ return [
     |
     */
 
-      'connections' => [
-        'testing' => [
-             'driver'   => 'sqlite',
-             'database' => ':memory:',
-             'prefix'   => '',
-             'options'  => [
-                 PDO::ATTR_PERSISTENT => false,
-             ],
-        ],
+    'connections' => [
 
         'sqlite' => [
             'driver' => 'sqlite',
